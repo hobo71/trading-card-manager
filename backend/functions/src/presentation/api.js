@@ -5,6 +5,7 @@ const { router } = require('./routes');
 
 const app = express();
 
+app.use(express.urlencoded());
 app.use(cors({ origin: true }));
 app.use(cookieParser());
 app.use(router);
