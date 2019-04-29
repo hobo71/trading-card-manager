@@ -8,12 +8,15 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
+    "test:integration": "jest",
     "serve": "firebase serve --only functions",
     "login": "firebase login --reauth",
     "shell": "firebase functions:shell",
     "start": "npm run serve",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "docker:start": "docker-compose up",
+    "docker:integration-test": "docker-compose --file integration-test.yml up"
   },
   "dependencies": {
     "cookie-parser": "1.4.4",

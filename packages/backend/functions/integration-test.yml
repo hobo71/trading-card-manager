@@ -1,0 +1,27 @@
+version: "3.5"
+services:
+  jest:
+    container_name: mtgx-database-integration
+    build: .
+    command: ["npm", "run", "test:integration"]
+    ports:
+      - "5000:5000"
+    links:
+      - mongodb
+    environment:
+      MONGO_URL: mongodb://admin:admin@localhost/admin
+    volumes:
+      - ./src:/usr/projects/mtgx-backend/src:ro
+  mongodb:
+    container_name: mtgx-mongo
+    image: mongo:3.6
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/var/lib/mongo
+volumes:
+  mongodb:

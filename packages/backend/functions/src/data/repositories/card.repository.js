@@ -26,7 +26,10 @@ const findAll = async (page = 1, pageSize = 25, sort = {}) => {
   };
 };
 
+const findByUUID = async uuid => CardModel.findOne({ uuid });
+
 module.exports = {
   save: upsert,
   findAll,
+  findByUUID,
 };
